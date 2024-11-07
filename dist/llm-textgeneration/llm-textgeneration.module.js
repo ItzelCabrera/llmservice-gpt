@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LlmTextgenerationModule = void 0;
 const common_1 = require("@nestjs/common");
-const microservices_1 = require("@nestjs/microservices");
 const llm_textgeneration_service_1 = require("./llm-textgeneration.service");
 const llm_textgeneration_controller_1 = require("./llm-textgeneration.controller");
 let LlmTextgenerationModule = class LlmTextgenerationModule {
@@ -16,23 +15,6 @@ let LlmTextgenerationModule = class LlmTextgenerationModule {
 exports.LlmTextgenerationModule = LlmTextgenerationModule;
 exports.LlmTextgenerationModule = LlmTextgenerationModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            microservices_1.ClientsModule.register([
-                {
-                    name: 'KAFKA_SERVICE',
-                    transport: microservices_1.Transport.KAFKA,
-                    options: {
-                        client: {
-                            clientId: 'llmservice',
-                            brokers: ['localhost:9092'],
-                        },
-                        consumer: {
-                            groupId: 'llmservice-consumer',
-                        },
-                    },
-                },
-            ]),
-        ],
         controllers: [llm_textgeneration_controller_1.LlmTextgenerationController],
         providers: [llm_textgeneration_service_1.LlmTextgenerationService],
     })

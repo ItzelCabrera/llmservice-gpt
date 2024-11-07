@@ -6,20 +6,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.ExampleService = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const llm_textgeneration_module_1 = require("./llm-textgeneration/llm-textgeneration.module");
-const example_module_1 = require("./example/example.module");
-let AppModule = class AppModule {
+let ExampleService = class ExampleService {
+    create(createExampleDto) {
+        return 'This action adds a new example';
+    }
+    findAll() {
+        return `This action returns all example`;
+    }
+    findOne(id) {
+        return `This action returns a #${id} example`;
+    }
+    update(id, updateExampleDto) {
+        return `This action updates a #${id} example`;
+    }
+    remove(id) {
+        return `This action removes a #${id} example`;
+    }
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
-    (0, common_1.Module)({
-        imports: [llm_textgeneration_module_1.LlmTextgenerationModule, example_module_1.ExampleModule],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
-    })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+exports.ExampleService = ExampleService;
+exports.ExampleService = ExampleService = __decorate([
+    (0, common_1.Injectable)()
+], ExampleService);
+//# sourceMappingURL=example.service.js.map
